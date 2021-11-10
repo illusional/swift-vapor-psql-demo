@@ -3,7 +3,17 @@
 Probably not best practice, I didn't want to use Fluent, so this is what I've scraped together - might be useful for others to see.
 
 
-## DATABASE SETUP
+## Database setup
+
+Within psql run:
+    
+```sql
+CREATE DATABASE example;
+\c example;
+# make sure the uuid-ossp function is working for default ID
+CREATE EXTENSION "uuid-ossp";
+CREATE TABLE table1(id UUID NOT NULL DEFAULT uuid_generate_v1(), field1 VARCHAR, field2 VARCHAR, CONSTRAINT pkey_example PRIMARY KEY ( id ));
+```
 
 
 
